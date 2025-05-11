@@ -20,6 +20,7 @@ import StudentLandingPage from "./components/pages/student/home/StudentLandingPa
 import AssignedCourses from "./components/pages/Prof/home/assigncource/courses";
 import StudentERPRegistration from "./components/pages/erp/StudentRegistration";
 import ProfessorAttendance from "./components/pages/Prof/attandance/ProfessorAttendance";
+import ProfessorGrading from "./components/pages/Prof/gread/Greading";
 
 export default function SideBar() {
   const isAdmin = false;
@@ -48,6 +49,7 @@ export default function SideBar() {
             <Route path="assigncource" element={<AssignedCourses />} />
             <Route path="studenterp" element={<StudentERPRegistration />} />
             <Route path="profattendance" element={<ProfessorAttendance />} />
+            <Route path="profgrading" element={<ProfessorGrading />} />
           </Routes>
         </div>
       </SidebarInset>

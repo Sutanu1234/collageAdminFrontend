@@ -81,6 +81,7 @@ export const getNavMenuByRole = (role) => {
           items: [
             { title: "My Subjects", url: "/profsubjects", icon: BookOpenTextIcon },
             { title: "Attendance", url: "/profattendance", icon: ScrollTextIcon },
+            { title: "Grading", url: "/profgrading", icon: ScrollTextIcon },
           ],
         },
         {
