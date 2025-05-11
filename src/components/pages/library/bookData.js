@@ -1,0 +1,36 @@
+export const bookData = {
+    books: [
+      { name: "Master Java & DSA", author: "Unknown", quantity: 6, tag: "java" },
+      { name: "Python for Beginners", author: "Guido Rossum", quantity: 10, tag: "python" },
+      { name: "Effective C++", author: "Scott Meyers", quantity: 5, tag: "cpp" },
+      { name: "Clean Code", author: "Robert C. Martin", quantity: 8, tag: "software" },
+      { name: "JavaScript: The Good Parts", author: "Douglas Crockford", quantity: 7, tag: "javascript" },
+      { name: "Data Structures & Algorithms", author: "Narasimha Karumanchi", quantity: 9, tag: "dsa" },
+      { name: "You Don't Know JS", author: "Kyle Simpson", quantity: 4, tag: "javascript" },
+      { name: "Design Patterns", author: "Erich Gamma", quantity: 6, tag: "software" },
+      { name: "The Pragmatic Programmer", author: "Andrew Hunt", quantity: 7, tag: "software" },
+      { name: "The Mythical Man-Month", author: "Frederick P. Brooks Jr.", quantity: 3, tag: "software" },
+      { name: "Computer Networking", author: "Andrew S. Tanenbaum", quantity: 8, tag: "networking" },
+      { name: "Artificial Intelligence: A Modern Approach", author: "Stuart Russell", quantity: 5, tag: "ai" },
+      { name: "Deep Learning", author: "Ian Goodfellow", quantity: 6, tag: "ml" },
+      { name: "Introduction to the Theory of Computation", author: "Michael Sipser", quantity: 4, tag: "theory" },
+      { name: "Operating System Concepts", author: "Abraham Silberschatz", quantity: 9, tag: "os" },
+      { name: "Modern Operating Systems", author: "Andrew S. Tanenbaum", quantity: 7, tag: "os" },
+      { name: "The C Programming Language", author: "Brian W. Kernighan", quantity: 6, tag: "c" },
+      { name: "Competitive Programming", author: "Steven Halim", quantity: 5, tag: "cp" },
+      { name: "The Algorithm Design Manual", author: "Steven S. Skiena", quantity: 4, tag: "dsa" },
+      { name: "Introduction to Algorithms", author: "Cormen, Leiserson", quantity: 6, tag: "dsa" },
+      { name: "Database System Concepts", author: "Abraham Silberschatz", quantity: 7, tag: "database" },
+      { name: "Web Development with Node.js", author: "David Herron", quantity: 5, tag: "nodejs" },
+      { name: "React Up & Running", author: "Stoyan Stefanov", quantity: 8, tag: "react" },
+      { name: "Java Concurrency in Practice", author: "Brian Goetz", quantity: 4, tag: "java" },
+      { name: "Kotlin in Action", author: "Dmitry Jemerov", quantity: 6, tag: "kotlin" },
+      { name: "The Rust Programming Language", author: "Steve Klabnik", quantity: 5, tag: "rust" },
+      { name: "Grokking the System Design Interview", author: "Alex Xu", quantity: 7, tag: "system-design" },
+      { name: "Blockchain Basics", author: "Daniel Drescher", quantity: 4, tag: "blockchain" },
+      { name: "Hands-On Machine Learning", author: "Aurélien Géron", quantity: 9, tag: "ml" },
+      { name: "Flutter for Beginners", author: "Thomas Bailey", quantity: 5, tag: "flutter" },
+      { name: "Cybersecurity Essentials", author: "Charles J. Brooks", quantity: 6, tag: "security" }
+    ]
+  };
+  
