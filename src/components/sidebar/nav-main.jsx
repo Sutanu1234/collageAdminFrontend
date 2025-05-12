@@ -24,10 +24,10 @@ import {
 export function NavMain({ menuData }) {
   const [userRole, setUserRole] = useState(null);
   const [items, setItems] = useState([]);
-
+  console.log(menuData)
   useEffect(() => {
     try {
-      const userData = localStorage.getItem("user");
+      const userData = localStorage.getItem("college-user");
       if (userData) {
         const parsedUser = JSON.parse(userData);
         setUserRole(parsedUser.role);

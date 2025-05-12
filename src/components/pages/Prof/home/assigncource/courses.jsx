@@ -11,59 +11,27 @@ export default function AssignedCourses() {
   const [professor, setProfessor] = useState(null);
 
   useEffect(() => {
-    const profData = localStorage.getItem("user");
+    const profData = localStorage.getItem("college-user");
 
     if (profData) {
       const parsedProf = JSON.parse(profData);
       setProfessor(parsedProf);
 
-      // Simulate loading delay
-      setTimeout(() => {
-        // Dummy data for development
-        const dummyCourses = [
-          {
-            _id: "1",
-            name: "Data Structures",
-            code: "CS201",
-            semester: "3",
-            credits: 4,
-          },
-          {
-            _id: "2",
-            name: "Operating Systems",
-            code: "CS301",
-            semester: "5",
-            credits: 3,
-          },
-          {
-            _id: "3",
-            name: "Computer Networks",
-            code: "CS302",
-            semester: "5",
-            credits: 3,
-          },
-        ];
-
-        setCourses(dummyCourses);
-        setLoading(false);
-        toast.success("Fetched assigned courses successfully!");
-
-        // Uncomment for actual backend fetch
-        /*
-        fetch(`/api/professor/assigned-courses/${parsedProf.id}`)
-          .then((res) => res.json())
-          .then((data) => {
-            setCourses(data.courses || []);
-            toast.success("Courses loaded!");
-            setLoading(false);
-          })
-          .catch((err) => {
-            console.error("Failed to fetch courses", err);
-            toast.error("Failed to fetch courses.");
-            setLoading(false);
-          });
-        */
-      }, 1000);
+      fetch(`http://localhost:5000/api/professor/${parsedProf.prof_id}`)
+        .then((res) => {
+          if (!res.ok) throw new Error("Failed to fetch");
+          return res.json();
+        })
+        .then((data) => {
+          setCourses(data.courses || []);
+          toast.success("Courses loaded!");
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error("Failed to fetch courses", err);
+          toast.error("Failed to fetch courses.");
+          setLoading(false);
+        });
     } else {
       toast.error("User not found in localStorage");
       setLoading(false);

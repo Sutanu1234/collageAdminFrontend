@@ -4,32 +4,37 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { useState } from "react";
+import axios from "axios";
 
 export function LoginForm({ className, ...props }) {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Mock authentication result
-    const isAuthenticated = true;
+    try {
+      const response = await axios.post("http://localhost:5000/api/auth/login", {
+        email,
+        password,
+      });
 
-    if (isAuthenticated) {
-      const user = {
-        name: "IIIT Kalyani",
-        email: "iiitkalyani.office@gmail.com",
-        semester: 5,
-        avatar: "/colLogo.svg",
-        role: "prof", // or "prof" or "student"
-      };
+      const { user } = response.data;
 
       // Save user to localStorage
-      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("college-user", JSON.stringify(user));
 
       toast.success("Login successful 🎉");
       navigate("/");
-    } else {
-      toast.error("Login failed. Please check your credentials.");
+    } catch (error) {
+      console.error(error);
+      if (error.response && error.response.data?.error) {
+        toast.error(error.response.data.error);
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
     }
   };
 
@@ -48,7 +53,14 @@ export function LoginForm({ className, ...props }) {
       <div className="grid gap-6">
         <div className="grid gap-2">
           <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" placeholder="m@example.com" required />
+          <Input
+            id="email"
+            type="email"
+            placeholder="m@example.com"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         <div className="grid gap-2">
           <div className="flex items-center">
@@ -60,7 +72,13 @@ export function LoginForm({ className, ...props }) {
               Forgot your password?
             </a>
           </div>
-          <Input id="password" type="password" required />
+          <Input
+            id="password"
+            type="password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
         <Button type="submit" className="w-full">
           Login
