@@ -5,6 +5,7 @@ import {
   FileBadgeIcon,
   FingerprintIcon,
   GraduationCapIcon,
+  Home,
   IdCardIcon,
   InboxIcon,
   IndianRupeeIcon,
@@ -36,6 +37,7 @@ export const getNavMenuByRole = (role) => {
           icon: GraduationCapIcon,
           isActive: true,
           items: [
+            { title: "Home", url: "/", icon: Home },
             { title: "Add Student", url: "/addStudent", icon: Plus },
             { title: "All Students", url: "/allStudents", icon: UsersRoundIcon },
             { title: "Upload Result", url: "/result", icon: FileBadgeIcon },
@@ -79,6 +81,7 @@ export const getNavMenuByRole = (role) => {
           icon: BookCopyIcon,
           isActive: true,
           items: [
+            { title: "Home", url: "/", icon: Home },
             { title: "My Subjects", url: "/profsubjects", icon: BookOpenTextIcon },
             { title: "Attendance", url: "/profattendance", icon: ScrollTextIcon },
             { title: "Grading", url: "/profgrading", icon: ScrollTextIcon },
@@ -102,6 +105,7 @@ export const getNavMenuByRole = (role) => {
           icon: GraduationCapIcon,
           isActive: true,
           items: [
+            { title: "Home", url: "/", icon: Home },
             { title: "ERP Registration", url: "/studenterp", icon: FingerprintIcon },
             { title: "Courses", url: "/student/courses", icon: BookOpenTextIcon },
             { title: "Fees Payment", url: "/student/fees", icon: IndianRupeeIcon },
