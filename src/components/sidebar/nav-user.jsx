@@ -1,5 +1,6 @@
 "use client"
 
+import { useNavigate } from "react-router-dom";
 import {
   Bell,
   ChevronsUpDown,
@@ -28,8 +29,16 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 
-export function NavUser({user}) {
+export function NavUser({ user }) {
   const { isMobile } = useSidebar()
+
+const navigate = useNavigate();
+
+const handleLogout = () => {
+  localStorage.removeItem("college-user"); // or whatever key you're using
+  navigate("/login"); // redirects to login page
+};
+
 
   return (
     <SidebarMenu>
@@ -84,7 +93,7 @@ export function NavUser({user}) {
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={handleLogout}>
               <LogOut />
               Log out
             </DropdownMenuItem>

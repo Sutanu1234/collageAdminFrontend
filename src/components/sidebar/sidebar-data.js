@@ -17,7 +17,7 @@ import {
 // Get user info from localStorage
 export const getUser = () => {
   try {
-    const userData = localStorage.getItem("user");
+    const userData = localStorage.getItem("college-user");
     return userData ? JSON.parse(userData) : null;
   } catch (err) {
     console.error("Error parsing user data from localStorage", err);
@@ -27,6 +27,7 @@ export const getUser = () => {
 
 // Role-based menu configuration
 export const getNavMenuByRole = (role) => {
+  console.log(role)
   switch (role) {
     case "admin":
       return [
@@ -71,7 +72,7 @@ export const getNavMenuByRole = (role) => {
         },
       ];
 
-    case "prof":
+    case "professor":
       return [
         {
           title: "Subjects",

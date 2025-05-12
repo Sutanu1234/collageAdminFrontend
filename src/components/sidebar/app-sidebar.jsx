@@ -21,19 +21,20 @@ export function AppSidebar({ ...props }) {
 
   useEffect(() => {
     try {
-      const userData = localStorage.getItem("user");
+      const userData = localStorage.getItem("college-user");
       if (userData) {
         const parsedUser = JSON.parse(userData);
         setUser(parsedUser);
+        console.log("hh: ",parsedUser.role)
         setMenuData({ [parsedUser.role]: getNavMenuByRole(parsedUser.role) });
       }
     } catch (err) {
       console.error("Failed to load user data from localStorage", err);
     }
   }, []);
-
+  console.log("Menu data: ",menuData)
   if (!user) return null; // or show a loader or fallback UI
-
+console.log("User data:", user);
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
