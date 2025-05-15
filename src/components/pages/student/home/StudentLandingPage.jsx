@@ -3,14 +3,15 @@ import { useNavigate } from "react-router-dom";
 
 export default function StudentLandingPage() {
   const navigate = useNavigate();
-
+      const user = JSON.parse(localStorage.getItem("college-user"));
+      if (!user) return toast.error("Student data not found");
   // You can replace this with actual data fetched from backend or context
   const studentInfo = {
-    name: "Sutanu Bera",
-    rollNo: "CSE22107/0961",
-    email: "cse22107@iiitkalyani.ac.in",
-    semester: "6",
-    cgpa: "8.5",
+    name: user.name,
+    rollNo: user.roll_no,
+    email: user.email,
+    dept: user.department,
+    Registration: user.reg_no,
   };
 
   const features = [
@@ -60,8 +61,8 @@ export default function StudentLandingPage() {
             <p><strong>Name:</strong> {studentInfo.name}</p>
             <p><strong>Roll No:</strong> {studentInfo.rollNo}</p>
             <p><strong>Email:</strong> {studentInfo.email}</p>
-            <p><strong>Semester:</strong> {studentInfo.semester}</p>
-            <p><strong>Current CGPA:</strong> {studentInfo.cgpa}</p>
+            <p><strong>Department:</strong> {studentInfo.dept}</p>
+            <p><strong>Registration:</strong> {studentInfo.Registration}</p>
           </div>
         </div>
       </section>

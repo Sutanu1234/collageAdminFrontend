@@ -18,8 +18,8 @@ export default function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/register/set-password" element={<RegisterPage />} />
           <Route path="/*" element={<SideBar />} />
-        <Route path="/student/courses" element={<ViewCoursesPage />} />
-        <Route path="/profsubjects" element={<AssignedCourses />} />
+        {/* <Route path="/student/courses" element={<ViewCoursesPage />} /> */}
+        {/* <Route path="/profsubjects" element={<AssignedCourses />} /> */}
           
         </Routes>
     </>

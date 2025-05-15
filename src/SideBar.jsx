@@ -24,9 +24,12 @@ import ProfessorGrading from "./components/pages/Prof/gread/Greading";
 import OfferOptionalCourses from "./components/pages/Prof/mysubjects/OfferOptionalCourses";
 
 export default function SideBar() {
-  const isAdmin = false;
-  const isProf = true;
-
+  // const isAdmin = false;
+  // const isProf = true;
+      const user = JSON.parse(localStorage.getItem("college-user"));
+      if (!user) return toast.error("Student data not found");
+      const role = user.role;
+      console.log(role)
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -35,9 +38,9 @@ export default function SideBar() {
         <Separator />
         <div>
           <Routes>
-            {isAdmin && <Route path="" element={<AdminLandingPage />} />}
-            {isProf && <Route path="" element={<ProfessorHomePage />} />}
-            {!isAdmin && !isProf && <Route path="" element={<StudentLandingPage />} />}
+            {role==='Admin' && <Route path="" element={<AdminLandingPage />} />}
+            {role === 'professor' && <Route path="" element={<ProfessorHomePage />} />}
+            {role === 'student' && <Route path="" element={<StudentLandingPage />} />}
 
             <Route path="addStudent" element={<AddStudent />} />
             <Route path="addSubject" element={<AddCoursesPage />} />
@@ -51,7 +54,8 @@ export default function SideBar() {
             <Route path="studenterp" element={<StudentERPRegistration />} />
             <Route path="profattendance" element={<ProfessorAttendance />} />
             <Route path="profgrading" element={<ProfessorGrading />} />
-            <Route path="profsubjects" element={<OfferOptionalCourses />} />
+            <Route path="profsubjects" element={<AssignedCourses />} />
+            <Route path="student/courses" element={<ViewCoursesPage />} />
           </Routes>
         </div>
       </SidebarInset>

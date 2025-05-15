@@ -84,12 +84,12 @@ export function LoginForm({ className, ...props }) {
           Login
         </Button>
       </div>
-      <div className="text-center text-sm">
+      {/* <div className="text-center text-sm">
         Don&apos;t have an account?{" "}
         <a href="/register" className="underline underline-offset-4">
           Sign up
         </a>
-      </div>
+      </div> */}
     </form>
   );
 }
