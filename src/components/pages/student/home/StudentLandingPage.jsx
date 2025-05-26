@@ -18,7 +18,7 @@ export default function StudentLandingPage() {
     {
       title: "ERP Registration",
       description: "Manage your ERP system access and settings.",
-      path: "/student/erp-registration",
+      path: "/studenterp",
     },
     {
       title: "Courses",
@@ -28,7 +28,7 @@ export default function StudentLandingPage() {
     {
       title: "Fees Payment",
       description: "Pay your semester and other fees online.",
-      path: "/student/fees",
+      url: "https://www.eduqfix.com/PayDirect/#/student",
     },
     {
       title: "View Attendance",
@@ -73,7 +73,13 @@ export default function StudentLandingPage() {
           {features.map((feature) => (
             <Card
               key={feature.title}
-              onClick={() => navigate(feature.path)}
+              onClick={() => {
+                if (feature.url) {
+                  window.open(feature.url, "_blank", "noopener,noreferrer");
+                } else if (feature.path) {
+                  navigate(feature.path);
+                }
+              }}
               className="cursor-pointer hover:shadow-lg transition duration-200"
             >
               <CardContent className="p-6">

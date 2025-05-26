@@ -10,19 +10,19 @@ export default function ProfessorHomePage() {
 
   const features = [
     {
-      title: "View Tasks",
-      description: "Check your assigned subjects and responsibilities.",
-      path: "/professor/view-tasks",
+      title: "My Courses",
+      description: "Veiw courses assigned to you for teaching.",
+      path: "/profsubjects",
     },
     {
-      title: "Add Optional Subjects",
-      description: "Add elective subjects you're offering.",
-      path: "/professor/add-optional-subjects",
+      title: "Grading",
+      description: "Update Student marks and grades.",
+      path: "/profgrading",
     },
     {
       title: "Manage Attendance",
       description: "Track and manage student attendance records.",
-      path: "/professor/manage-attendance",
+      path: "/profattendance",
     },
   ];
 
